@@ -1,0 +1,43 @@
+{
+  "name": "sse-demo",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "files": [
+    "./server.js",
+    "./bin/*.js",
+    "./lib/*.js"
+  ],
+  "type": "module",
+  "imports": {
+    "sse-demo": "./server.js",
+    "sse-demo/": "./"
+  },
+  "exports": {
+    ".": "./server.js",
+    "./*": "./*"
+  },
+  "scripts": {
+    "test": "node ./tests/",
+    "start": "node server.js",
+    "jshint": "npx -p jshint@2.x -- jshint -c ./.jshintrc ./*.js",
+    "lint": "npm run jshint && npm run tsc",
+    "prettier": "npx -p prettier@3.x -- prettier -w '**/*.{js,md}'",
+    "fmt": "npm run prettier",
+    "bump": "npm version -m \"chore(release): bump to v%s\"",
+    "tsc": "! npx -p typescript@5.x -- tsc -p ./jsconfig.json | grep '\\.js(\\d\\+,\\d\\+): error' | grep -v '\\<node_modules/'",
+    "reexport-types": "npx -p jswt@2.x -- reexport",
+    "prepublish": "npm run reexport-types"
+  },
+  "keywords": [
+    "Server-Sent",
+    "Events",
+    "SSE"
+  ],
+  "author": "AJ ONeal <aj@therootcompany.com> (https://therootcompany.com/)",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
