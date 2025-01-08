@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" />
+    <title>SSE Test</title>
+  </head>
+  <body>
+    <h1>SSE Notifications</h1>
+    <div data-id="notifications">(no notifications yet)</div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "sse-demo-client": "./app.js",
+          "sse-demo-client/": "./"
+        }
+      }
+    </script>
+    <script type="module">
+      import "sse-demo-client";
+    </script>
+  </body>
+</html>
